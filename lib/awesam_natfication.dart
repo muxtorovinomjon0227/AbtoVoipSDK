@@ -107,6 +107,7 @@ class FirebaseMain extends FirebaseService {
   @override
   Future<void> getTokenFirebase() async {
     String? token = await FirebaseMessaging.instance.getToken();
+    print("Firebase token $token");
   }
 
 

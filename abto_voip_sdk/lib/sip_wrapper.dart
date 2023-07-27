@@ -132,10 +132,10 @@ class SipWrapper {
     _channel?.platform?.invokeMethod(_EVENT_SET_CONFIGS, map);
   }
 
-  void register(String domain, String proxy, String user, String pass, String authId, String displName, int expire) {
+  void register(String domain, String proxy, String user, String pass, String authId, String displName, int expire, String token) {
     debugPrint("SipWrapper register " + user);
     _channel?.platform?.invokeMethod(_EVENT_REGISTER,
-        [domain, proxy, user, pass, authId, displName, expire.toString()]);
+        [domain, proxy, user, pass, authId, displName, expire.toString(),token]);
   }
 
   void destroy() {

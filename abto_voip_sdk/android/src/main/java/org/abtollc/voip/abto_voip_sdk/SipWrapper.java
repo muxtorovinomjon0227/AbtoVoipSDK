@@ -338,19 +338,30 @@ public class SipWrapper implements MethodChannel.MethodCallHandler {
                 String pass =array.get(3);
                 String authId = array.get(4);
                 String displName = array.get(5);
+                String setContactDetailsUri = array.get(7);
                 int expire = Integer.parseInt(array.get(6));
-                cfg.addAccount(
-                        domain,
-                        proxy,
-                        user,
-                        pass,
-                        authId,
-                        displName,
-                        expire,
-                        false
-                );
-
-                phone.initialize(true);
+                if (phone.isActive()){
+                    try {
+                        phone.register();
+                    } catch (RemoteException e) {
+                        e.printStackTrace();
+                    }
+                } else {
+                    cfg.addAccount(
+                            domain,
+                            proxy,
+                            user,
+                            pass,
+                            authId,
+                            displName,
+                            expire,
+                            false,
+                            true, // Use true here to always add as a single account
+                            "",
+                            setContactDetailsUri,
+                            "");
+                    phone.initializeForeground(null);
+                }
                 break;
             }
             case EVENT_UNREGISTER: {

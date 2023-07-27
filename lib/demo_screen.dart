@@ -1,3 +1,4 @@
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 
 import 'package:abto_voip_sdk/sip_wrapper.dart';
@@ -170,7 +171,7 @@ class DemoScreenState extends State<MyHomePage> {
                       color: Colors.lightGreen,
                       child: const Text("Register",
                           style: TextStyle(color: Colors.white)),
-                      onPressed: () {
+                      onPressed: () async {
                         ////////////////////////////////////////////////////
                         // Register
                         ////////////////////////////////////////////////////
@@ -184,9 +185,9 @@ class DemoScreenState extends State<MyHomePage> {
                               const SnackBar(content: Text("Input all fields")));
                           return;
                         }
-
+                        String? token = await FirebaseMessaging.instance.getToken();
                         loadingDialog.show(context);
-                        SipWrapper.wrapper.register(domain, "", login, pass, "", "", 300);
+                        SipWrapper.wrapper.register(domain, "", login, pass, "", "", 300, ";push-token-type=firebase;push-token-app=com.technounitgroup.alovoiceuz;push-token-id=${Uri.encodeFull(token ?? "")}" );
                       },
                     ),
                     SizedBox(height: 15),
