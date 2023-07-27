@@ -1,0 +1,80 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.technounitgroup.alovoiceuz">
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.USE_SIP" />
+    <uses-permission android:name="android.permission.CONFIGURE_SIP" />
+    <uses-feature
+        android:name="android.hardware.wifi"
+        android:required="false"/>
+    <uses-feature
+        android:name="android.hardware.microphone"
+        android:required="true"/>
+    <uses-feature
+        android:name="android.hardware.touchscreen"
+        android:required="false"/>
+    <uses-feature
+        android:name="android.hardware.bluetooth"
+        android:required="false"/>
+    <uses-feature
+        android:name="android.hardware.screen.portrait"
+        android:required="false"/>
+    <application
+        android:label="AloVoice"
+        android:name="org.abtollc.sdk.AbtoApplication"
+        android:icon="@mipmap/ic_launcher"
+        tools:ignore="MissingClass">
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:launchMode="singleTop"
+            android:theme="@style/LaunchTheme"
+            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
+            android:hardwareAccelerated="true"
+            android:windowSoftInputMode="adjustResize">
+            <meta-data
+              android:name="io.flutter.embedding.android.NormalTheme"
+              android:resource="@style/NormalTheme"
+              />
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="FLUTTER_NOTIFICATION_CLICK" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name="GetPermissionsActivity" android:theme="@style/Theme.Transparent" />
+
+        <meta-data
+            android:name="flutterEmbedding"
+            android:value="2" />
+        <service
+            android:name="org.abtollc.service.ABTOSipService"
+            android:exported="true"
+            tools:replace="android:exported"
+            android:stopWithTask="true">
+            <intent-filter>
+                <action android:name="org.abtollc.service.ABTOSipService" />
+                <action android:name="org.abtollc.service.SipConfiguration" />
+            </intent-filter>
+        </service>
+        <service
+            android:name=".IncomingCallService"
+            android:enabled="true">
+        </service>
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_channel_id"
+            android:value="@string/default_notification_channel_id" />
+
+    </application>
+</manifest>

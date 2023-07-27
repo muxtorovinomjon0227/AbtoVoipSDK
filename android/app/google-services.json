@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "851159425558",
+    "project_id": "uzalovoice",
+    "storage_bucket": "uzalovoice.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:851159425558:android:39b39ab609132957454b37",
+        "android_client_info": {
+          "package_name": "com.technounitgroup.alovoiceuz"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "851159425558-atemgib1t8q7qfrg26duuqav6rtqlj0r.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD1YcKLUgv47drCA9wv3h5WdgBR1cbvgbk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "851159425558-atemgib1t8q7qfrg26duuqav6rtqlj0r.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
