@@ -102,7 +102,7 @@ class FirebaseMain extends FirebaseService {
     } catch (e) {
       e;
     }
-  }
+     }
 
   @override
   Future<void> getTokenFirebase() async {
