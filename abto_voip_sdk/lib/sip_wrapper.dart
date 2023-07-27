@@ -162,7 +162,7 @@ class SipWrapper {
   void pickUpCall(bool isVideo) {
     debugPrint("SipWrapper pickUpCall");
     _channel?.platform?.invokeMethod(_EVENT_PICK_UP_CALL, isVideo);
-  }
+   }
 
   void hangUpCall(int status) {
     debugPrint("SipWrapper hangUpCall");
